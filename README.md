@@ -14,11 +14,16 @@ Celem skryptów jest automatyczna ekstrakcja surowych plików CSV, zaawansowane 
 ---
 
 ## 🛠️ Technologie
-* **Język:** Python 3
-* **Wbudowane biblioteki:** `csv`, `os`, `math`
-* **Analiza i wizualizacja (zależności):** Metody numeryczne (aproksymacja wielomianowa)
+* **Przetwarzanie danych:** Python 3 (`csv`, `os`, `math`)
+* **Wizualizacja i modelowanie matematyczne:** MATLAB
+* **Formaty danych wejściowych/wyjściowych:** CSV
 
 ---
+
+## ⚙️ Architektura rozwiązania
+Projekt został podzielony na dwa główne etapy:
+1. **Oczyszczanie danych (Python):** Skrypt `filtrowanie_danych.py` ekstrahuje surowe dane i filtruje anomalie oraz błędy pomiarowe, tworząc zagregowane pliki CSV (np. `przefiltrowane_dane_2016.csv`).
+2. **Wizualizacja i aproksymacja (MATLAB):** Skrypty `.m` (np. `wykresy_temperatury_dobowe.m`) pobierają oczyszczone pliki CSV, wykonują na nich aproksymację wielomianową 6. stopnia i generują profesjonalne wykresy przebiegu temperatur.
 
 ## ⚙️ Logika filtrowania danych (`filtrowanie_danych.py`)
 Surowe dane z IMGW (pliki w formacie `k_d_MM_YYYY.csv`) często zawierają anomalie sprzętowe lub braki. Napisany skrypt Python przechodzi przez dane miesiąc po miesiącu i aplikuje ścisłe filtry walidacyjne:
@@ -40,3 +45,18 @@ Oczyszczone dane posłużyły do wyznaczenia uśrednionego trendu dla całego re
 * **Amplitudy:** Stacje położone w specyficznym terenie, takie jak *Łącko* i *Limanowa*, wykazują znacznie większe dobowe amplitudy (wahania) temperatur niż stacje skrajne.
 
 ---
+
+## 🚀 Jak uruchomić projekt?
+
+1. **Krok 1: Przetwarzanie (Python)**
+   * Upewnij się, że surowe dane IMGW (katalogi z latami `2016`-`2025`) znajdują się w głównym folderze.
+   * Uruchom skrypt w terminalu:
+     ```bash
+     python filtrowanie_danych.py
+     ```
+   * Skrypt wygeneruje roczne pliki `.csv` z oczyszczonymi danymi.
+
+2. **Krok 2: Generowanie wykresów (MATLAB)**
+   * Otwórz środowisko MATLAB.
+   * Uruchom plik `wykresy_temperatury_dobowe.m` w celu wygenerowania wykresów dla poszczególnych stacji.
+   * Uruchom plik `wykres_analiza_regionu_2016.m` w celu nałożenia aproksymacji wielomianowej dla całego regionu.
