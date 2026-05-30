@@ -40,9 +40,3 @@ Oczyszczone dane posłużyły do wyznaczenia uśrednionego trendu dla całego re
 * **Amplitudy:** Stacje położone w specyficznym terenie, takie jak *Łącko* i *Limanowa*, wykazują znacznie większe dobowe amplitudy (wahania) temperatur niż stacje skrajne.
 
 ---
-
-## 🚀 Jak uruchomić projekt?
-
-1. Sklonuj repozytorium:
-   ```bash
-   git clone [https://github.com/TwojLogin/malopolska-weather-analysis.git](https://github.com/TwojLogin/malopolska-weather-analysis.git)
